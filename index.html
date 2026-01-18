@@ -49,7 +49,7 @@
             top: 10vh;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 12vmin;
+            font-size: 8vmin;
             font-family: 'Georgia', serif;
             color: #f672b0;
             text-shadow: 0 0 20px rgba(246, 114, 176, 0.8),
@@ -57,20 +57,38 @@
             0 0 60px rgba(246, 114, 176, 0.3);
             z-index: 1000;
             letter-spacing: 0.5vmin;
-            animation: blooming-text 2s 0.5s backwards, floating-text 4s ease-in-out infinite;
+            animation: floating-text 4s ease-in-out infinite;
+            white-space: nowrap;
         }
 
-        @keyframes blooming-text {
+        .name-title span {
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0) translateY(-50px);
+            animation: letter-appear 0.6s forwards;
+        }
+
+        .name-title span:nth-child(1) { animation-delay: 0.1s; }
+        .name-title span:nth-child(2) { animation-delay: 0.2s; }
+        .name-title span:nth-child(3) { animation-delay: 0.3s; }
+        .name-title span:nth-child(4) { animation-delay: 0.4s; }
+        .name-title span:nth-child(5) { animation-delay: 0.5s; }
+        .name-title span:nth-child(6) { animation-delay: 0.6s; }
+        .name-title span:nth-child(7) { animation-delay: 0.7s; }
+        .name-title span:nth-child(8) { animation-delay: 0.8s; }
+        .name-title span:nth-child(9) { animation-delay: 0.9s; }
+
+        @keyframes letter-appear {
             0% {
-                transform: translateX(-50%) scale(0);
                 opacity: 0;
+                transform: scale(0) translateY(-50px) rotate(-10deg);
             }
             50% {
-                transform: translateX(-50%) scale(1.1);
+                transform: scale(1.2) translateY(10px) rotate(5deg);
             }
             100% {
-                transform: translateX(-50%) scale(1);
                 opacity: 1;
+                transform: scale(1) translateY(0) rotate(0deg);
             }
         }
 
@@ -431,14 +449,16 @@
             animation-play-state: paused !important;
         }
 
-        .container .name-title {
+        .container .name-title span {
             animation-play-state: paused !important;
         }
     </style>
 </head>
 <body class="container">
 <div class="night"></div>
-<h1 class="name-title">Stephanie</h1>
+<h1 class="name-title">
+    <span>S</span><span>t</span><span>e</span><span>p</span><span>h</span><span>a</span><span>n</span><span>i</span><span>e</span>
+</h1>
 <div class="flowers">
     <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
